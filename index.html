@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guest Guide · Cabins by the Generals</title>
+<meta name="description" content="Directions, house rules, Wi-Fi and appliance guides for your cabin stay.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1f3a2e; --forest2:#2d5242; --wood:#8a5a36; --cream:#f8f3e8; --card:#fffdf8;
+  --ink:#1d2620; --muted:#5b655e; --gold:#b58a3c; --line:#e6dcc6; --warn:#a3321f; --warnbg:#fbeae5;
+  --ok:#2f6b4a; --okbg:#e6f1ea;
+  --serif:"Fraunces",Georgia,serif; --sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--cream:#141c17; --card:#1d2822; --ink:#f1ebdc; --muted:#a9b2aa; --line:#33443a; --gold:#d6ae5e;
+        --warnbg:#3a1f19; --warn:#f0a595; --okbg:#1f3a2c; --ok:#8fd3ac; --wood:#c58b5c}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:70px}
+body{font:16px/1.6 var(--sans);background:var(--cream);color:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+h1,h2,h3{font-family:var(--serif);line-height:1.2}
+.hero{background:var(--forest);color:#f8f3e8;text-align:center;padding:calc(2.5rem + env(safe-area-inset-top)) 1.25rem 3.5rem;
+  border-bottom:4px solid var(--gold)}
+.hero p.brand{font-size:.95rem;color:#e0c689;letter-spacing:.04em}
+.hero h1{font-size:clamp(2rem,8vw,3.2rem);margin:.4rem 0}
+.hero p.sub{max-width:34ch;margin:0 auto;opacity:.88}
+.tabs{position:sticky;top:0;z-index:5;background:var(--cream);border-bottom:1px solid var(--line);padding:.6rem .75rem;
+  padding-top:calc(.6rem + env(safe-area-inset-top));display:flex;gap:.5rem;justify-content:center;overflow-x:auto}
+.tabs button{font:600 .95rem var(--sans);border:1.5px solid var(--forest2);background:transparent;color:var(--forest2);
+  padding:.55rem 1rem;border-radius:99px;cursor:pointer;white-space:nowrap;min-height:44px}
+@media (prefers-color-scheme:dark){.tabs button{color:#cfe3d6;border-color:#4d6c5b}}
+.tabs button[aria-selected=true]{background:var(--forest2);color:#fff;border-color:var(--forest2)}
+button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{max-width:760px;margin:0 auto;padding:1.25rem 1rem 3rem}
+.panel[hidden]{display:none}
+.panel>h2{font-size:1.5rem;margin:.5rem 0 1rem;color:var(--forest2)}
+@media (prefers-color-scheme:dark){.panel>h2{color:#cfe3d6}}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:.8rem;overflow:hidden}
+summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.8rem;padding:1rem;min-height:56px;font:700 1.12rem var(--serif)}
+summary::-webkit-details-marker{display:none}
+summary .ic{font-size:1.5rem;width:2.4rem;height:2.4rem;display:grid;place-items:center;background:var(--cream);border-radius:10px;flex:none}
+summary small{display:block;font:400 .85rem var(--sans);color:var(--muted)}
+summary::after{content:"";margin-left:auto;width:.6rem;height:.6rem;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  transform:rotate(45deg);transition:transform .2s;flex:none}
+details[open] summary::after{transform:rotate(-135deg)}
+details[open] summary{border-bottom:1px solid var(--line)}
+.body{padding:1rem}
+.body>*+*{margin-top:.8rem}
+ol.steps{list-style:none;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding-left:2.6rem;margin-bottom:.9rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:1.9rem;height:1.9rem;border-radius:50%;
+  background:var(--forest2);color:#fff;font:700 .9rem var(--sans);display:grid;place-items:center}
+ol.steps b{display:block}
+.note,.alert{border-radius:10px;padding:.8rem 1rem;font-size:.96rem}
+.note{background:var(--okbg);color:var(--ok);border-left:4px solid var(--ok)}
+.alert{background:var(--warnbg);color:var(--warn);border-left:4px solid var(--warn)}
+.alert b,.note b{display:block}
+.cred{display:flex;align-items:center;gap:.75rem;justify-content:space-between;border:1.5px dashed var(--gold);border-radius:12px;padding:.7rem .9rem}
+.cred span{font-size:.82rem;color:var(--muted);display:block}
+.cred code{font:700 1.15rem ui-monospace,Menlo,monospace;word-break:break-all}
+.copy{font:700 .9rem var(--sans);background:var(--forest2);color:#fff;border:0;border-radius:8px;padding:.55rem .9rem;cursor:pointer;min-height:44px}
+.rules{display:grid;gap:.8rem}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem;display:flex;gap:.9rem}
+.rule .ic{font-size:1.6rem;flex:none}
+.rule h3{font-size:1.05rem;margin-bottom:.15rem}
+.rule p{color:var(--muted);font-size:.96rem}
+.rule.bonus{border-color:var(--gold);background:linear-gradient(var(--card),var(--card)) padding-box}
+.quiet{background:#10192b;color:#fff;border-radius:14px;padding:1.2rem;display:grid;gap:.8rem;margin-bottom:.8rem}
+.quiet div{border-radius:12px;padding:1rem;text-align:center}
+.quiet .g{background:#1c7a4f}.quiet .r{background:#b91c24}
+.quiet .l{background:#fbf3e0;color:#1d2620;border:3px solid #f2c14e}
+.quiet strong{display:block;font:700 1.6rem var(--serif)}
+.quiet .gold{color:#f2c14e}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;list-style:none;padding:0}
+.checks li{background:var(--okbg);color:var(--ok);border-radius:10px;padding:.7rem;font-size:.9rem}
+.checks b{display:block}
+.crew{display:flex;gap:.6rem;flex-wrap:wrap}
+.crew span{background:var(--cream);border:1px solid var(--line);border-radius:99px;padding:.35rem .9rem;font-weight:700}
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:0 1rem 2rem}
+@media (min-width:640px){.rules{grid-template-columns:1fr 1fr}.quiet{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="brand">Cabins by the Generals</p>
+  <h1>Your Guest Guide</h1>
+  <p class="sub">Directions, Wi-Fi, house rules and how-tos for a smooth, happy stay.</p>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Guide categories">
+  <button role="tab" id="t-quick" aria-controls="quick" aria-selected="true">🧭 Quick Info</button>
+  <button role="tab" id="t-rules" aria-controls="rules" aria-selected="false">📜 House Rules</button>
+  <button role="tab" id="t-amen" aria-controls="amen" aria-selected="false">🛠️ Amenities</button>
+</nav>
+
+<main>
+
+<!-- QUICK INFO -->
+<section class="panel" id="quick" role="tabpanel" aria-labelledby="t-quick">
+  <h2>Quick Info</h2>
+
+  <details open id="arrival">
+    <summary><span class="ic">📍</span><span>Finding your cabin<small>Arrival and GPS directions</small></span></summary>
+    <div class="body">
+      <ol class="steps">
+        <li><b>Start GPS</b>Set your GPS destination to <strong>Cabins by the Generals</strong>.</li>
+        <li><b>Drive past Barangay Hall</b>From the Barangay Hall, continue straight for <strong>80 to 100 meters</strong>.</li>
+        <li><b>Find the landmark</b>Look for the <strong>FUEL gas station</strong> on your right.</li>
+        <li><b>Make the turn</b>Turn <strong>right</strong> into the small street located <strong>immediately before</strong> the gas station.</li>
+        <li><b>Arrive</b>Follow the road to the end. The cabin is the property on the <strong>left</strong>.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details id="wifi">
+    <summary><span class="ic">📶</span><span>Free cabin Wi-Fi<small>Scan or type to connect</small></span></summary>
+    <div class="body">
+      <ol class="steps">
+        <li><b>Point your camera</b>Aim your phone camera at the Wi-Fi QR code posted in the cabin.</li>
+        <li><b>Tap to join</b>Tap to join the <strong>Charlotte!</strong> network.</li>
+      </ol>
+      <div class="cred"><div><span>Network name</span><code id="ssid">Charlotte!</code></div><button class="copy" data-copy="Charlotte!">Copy</button></div>
+      <div class="cred"><div><span>Password (if not automatic)</span><code id="pw">1Kyriljamie!</code></div><button class="copy" data-copy="1Kyriljamie!">Copy</button></div>
+      <p class="note">Please do not share this information outside the cabin property. Enjoy your stay!</p>
+    </div>
+  </details>
+
+  <details id="quiet">
+    <summary><span class="ic">🌙</span><span>Quiet time rules<small>Cabin 1 · karaoke and noise</small></span></summary>
+    <div class="body">
+      <div class="quiet">
+        <div class="g">Karaoke is<strong>ALLOWED</strong><span class="gold">Sing, enjoy, and have fun!</span></div>
+        <div class="r">Beyond 10:00 PM<strong>Lower the volume</strong><strong class="gold">Doors &amp; windows must be closed</strong></div>
+        <div class="l"><b>Legal notice</b><br>An existing DILG ordinance prohibits <b style="color:#b91c24">loud noise after 10:00 PM.</b></div>
+      </div>
+      <p>Salamat sa pag-unawa at paggalang sa kapwa guests at kapitbahay. Enjoy your stay, and sweet dreams!</p>
+    </div>
+  </details>
+</section>
+
+<!-- HOUSE RULES -->
+<section class="panel" id="rules" role="tabpanel" aria-labelledby="t-rules" hidden>
+  <h2>Welcome to our cabin! House rules</h2>
+  <p style="margin-bottom:1rem;color:var(--muted)">Simple rules for a clean, healthy, and enjoyable stay.</p>
+  <div class="rules">
+    <article class="rule"><span class="ic">👟</span><div><h3>Remove shoes</h3><p>Maintain a clean and healthy environment, especially for kids.</p></div></article>
+    <article class="rule"><span class="ic">🎛️</span><div><h3>Equipment operation</h3><p>Unsure? Please message us! We're here to help.</p></div></article>
+    <article class="rule"><span class="ic">🎤</span><div><h3>Karaoke hours</h3><p>Strictly limited to 10:00 PM for all loud sounds. After 10 PM, only low-volume, in-cabin music is permitted, with all doors and windows closed. Respect neighbors and community peace.</p></div></article>
+    <article class="rule"><span class="ic">🧹</span><div><h3>Cleanliness</h3><p>Maintain a tidy cabin for your health and comfort. Optional caretaker cleaning: ₱500.</p></div></article>
+    <article class="rule"><span class="ic">🕒</span><div><h3>Check-out procedure</h3><p>Wait 5 minutes for inspection. Check your personal belongings and report damages or missing items.</p></div></article>
+    <article class="rule"><span class="ic">❄️</span><div><h3>Aircon</h3><p>Close all doors when not in use for efficiency and comfort.</p></div></article>
+    <article class="rule"><span class="ic">🚭</span><div><h3>No smoking</h3><p>No smoking inside the cabin, including vaping.</p></div></article>
+    <article class="rule"><span class="ic">💳</span><div><h3>Full payment</h3><p>Full payment is due upon check-in.</p></div></article>
+    <article class="rule"><span class="ic">🧑‍🔧</span><div><h3>Caretakers</h3><p>On call for help. Message or ask them. Available until 9:30 PM.</p></div></article>
+    <article class="rule"><span class="ic">🛋️</span><div><h3>Leather furniture care</h3><p>Take extra care of the Zion chair. Keep it safe from scratches and sharp objects.</p></div></article>
+    <article class="rule bonus" style="grid-column:1/-1"><span class="ic">📸</span><div><h3>Bonus rule! (for fun)</h3><p>Capture memories around the cabin, especially at the front! Send us shots to share on our page (with permission). We'd love to see them!</p></div></article>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="panel" id="amen" role="tabpanel" aria-labelledby="t-amen" hidden>
+  <h2>Amenities &amp; Appliances</h2>
+
+  <details open id="whirlpool">
+    <summary><span class="ic">🛁</span><span>Whirlpool bathtub<small>Pozzi BN-416 · follow steps 1 to 5 in order</small></span></summary>
+    <div class="body">
+      <p class="alert"><b>Never run the jets dry</b>Water must cover every jet plus 2–3 in (5–8 cm) above the highest one before you press ON. A dry pump burns out.</p>
+      <ol class="steps">
+        <li><b>Prepare</b>Turn the chrome drain knob to <strong>close</strong> the drain. Clear hair and debris from the jets and overflow.</li>
+        <li><b>Fill</b>Set the Diverter to tub fill. Open Cold, then Hot. Aim for 38–40 °C, never hotter. Fill past the water line above, then close Hot, then Cold.</li>
+        <li><b>Start the jets</b>Dry your hands. Press POWER ON/OFF once = ON, again = OFF. Twist a nozzle ring to adjust force and swivel it to aim.</li>
+        <li><b>Hand shower</b>Turn the Diverter to the shower position. Test the temperature on your hand first. Return the wand, then set the Diverter back to tub fill.</li>
+        <li><b>Finish &amp; drain</b>Jets OFF first: press POWER ON/OFF. Then turn the chrome drain knob to <strong>open</strong> the drain. Rinse jets and walls. Close all faucets.</li>
+      </ol>
+      <p class="alert"><b>Close all faucets</b>Turn Hot, Cold and Diverter fully clockwise until they stop. Check that nothing drips.</p>
+      <h3>Before you leave, check all 4</h3>
+      <ul class="checks">
+        <li><b>✔ All knobs closed</b>Hot, Cold and Diverter turned fully clockwise</li>
+        <li><b>✔ Jets turned off</b>Jets are silent</li>
+        <li><b>✔ Drain closed</b>Set to closed after the tub is empty</li>
+        <li><b>✔ Lights off</b>Switch off the bathroom lights</li>
+      </ul>
+    </div>
+  </details>
+
+  <details id="ps5">
+    <summary><span class="ic">🎮</span><span>PS5 safe shutdown<small>Protect your software from corruption</small></span></summary>
+    <div class="body">
+      <p class="alert"><b>Never use the console buttons or pull the cable</b>The PS5 only shuts down safely if software can close properly. Pulling the plug causes data corruption. Be patient!</p>
+      <ol class="steps">
+        <li><b>PS button</b>Press the PlayStation button on your DualSense. Do not power off yet.</li>
+        <li><b>Select the power icon</b>Go to the lower quick menu, select the power icon, and choose <strong>Turn Off PS5</strong>.</li>
+        <li><b>Wait for the LED</b>The blue light bar will flash. It is only safe when it turns off completely.</li>
+        <li><b>Avoid console buttons</b>Never use the physical power or disc eject buttons to turn off, and don't unplug. It is an unsafe shutdown method.</li>
+      </ol>
+    </div>
+  </details>
+
+  <details id="walkie">
+    <summary><span class="ic">📻</span><span>Walkie-talkie<small>Call the caretakers for help</small></span></summary>
+    <div class="body">
+      <ol class="steps">
+        <li><b>Turn on</b>Press and hold the power button.</li>
+        <li><b>Channel is pre-set. Do not change!</b>It is set for direct communication. Changing it will disrupt service.</li>
+        <li><b>To speak</b>Press and hold the left-side button. Speak clearly.</li>
+        <li><b>To listen</b>Release the button and wait for the other person to finish.</li>
+        <li><b>Contact our on-call crew</b>Call for Kuya Mike or Ate Cris. Press, say your message, and release.
+          <div class="crew" style="margin-top:.5rem"><span>Kuya Mike</span><span>Ate Cris</span></div></li>
+      </ol>
+      <p class="note"><b>Tips</b>Keep a steady volume. Do not cover the microphone.</p>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <p>Cabins by the Generals · #CabinLife #AFrame #HappyStay</p>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function show(tab){
+    tabs.forEach(function(t){
+      var on=t===tab;
+      t.setAttribute('aria-selected',on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t)})});
+  // deep links: index.html#wifi opens the right tab and accordion
+  function fromHash(){
+    var el=location.hash&&document.querySelector(location.hash);
+    if(!el)return;
+    var panel=el.closest('.panel');
+    if(panel)show(document.getElementById('t-'+panel.id));
+    if(el.tagName==='DETAILS')el.open=true;
+  }
+  window.addEventListener('hashchange',fromHash);fromHash();
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.getAttribute('data-copy');
+      var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500)};
+      if(navigator.clipboard)navigator.clipboard.writeText(v).then(done,done);else done();
+    });
+  });
+})();
+</script>
+</body>
+</html>
