@@ -324,13 +324,13 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;padding:0 1rem 7rem
     document.body.style.overflow=on?'hidden':'';
   }
   function render(){
-    var name=clean(new URLSearchParams(location.search).get('name'))||clean(read('guestName'));
+    var name=clean(new URLSearchParams(location.search).get('name'))||clean(read('guestName_charlie'));
     wrap.textContent='';
     if(name){
       greet.textContent='Hello, ';var em=document.createElement('em');em.textContent=name;greet.appendChild(em);
       document.title='Hello, '+name+' · Cabins by the Generals';
       var c=document.createElement('button');c.className='change';c.textContent='Not you? Change name';
-      c.onclick=function(){store('guestName',null);history.replaceState(null,'',location.pathname+location.hash);gi.value='';render()};
+      c.onclick=function(){store('guestName_charlie',null);history.replaceState(null,'',location.pathname+location.hash);gi.value='';render()};
       wrap.appendChild(c);
       if(!gate.hidden){gate.classList.add('out');lock(false);window.scrollTo(0,0);setTimeout(function(){gate.hidden=true},400)}
     }else{
@@ -339,7 +339,7 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;padding:0 1rem 7rem
     }
   }
   document.getElementById('gateForm').addEventListener('submit',function(e){
-    e.preventDefault();var v=clean(gi.value);if(v){store('guestName',v);render()}
+    e.preventDefault();var v=clean(gi.value);if(v){store('guestName_charlie',v);render()}
   });
   render();
 })();
